@@ -17,15 +17,10 @@ To install this module using Composer, follow these steps:
 
 1. **Add the repository to `composer.json`** (if not already added):
 
-    ```json
-    {
-        "repositories": [
-            {
-                "type": "composer",
-                "url": "https://packagist.org"
-            }
-        ]
-    }
+    ```sh
+   composer config repositories.private-packagist composer https://repo.packagist.com/magemontreal/
+   composer config repositories.packagist.org false
+   composer config --global --auth http-basic.repo.packagist.com sajidunnar tokenhash (Ask for token)
     ```
 
 2. **Require the module**:
@@ -62,11 +57,8 @@ The module logs all page access information. You can view the logged data in the
 
 ## Support
 
-For support, please contact the author via email.
+For support, please contact the author via email sajidunnar@gmail.com
 
-## License
-
-This module is open-sourced software licensed under the Open Software License (OSL 3.0) and the Academic Free License (AFL 3.0).
 
 ## Author
 

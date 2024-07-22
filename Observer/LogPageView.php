@@ -10,11 +10,29 @@ use Magento\Backend\Model\View\Result\Page as BackendPage;
 
 class LogPageView implements ObserverInterface
 {
+    /**
+     * @var LoggerInterface
+     */
     protected $logger;
+    /**
+     * @var Http
+     */
     protected $request;
+    /**
+     * @var FrontendTitle
+     */
     protected $frontendTitle;
+    /**
+     * @var BackendPage
+     */
     protected $backendPage;
 
+    /**
+     * @param LoggerInterface $logger
+     * @param Http $request
+     * @param FrontendTitle $frontendTitle
+     * @param BackendPage $backendPage
+     */
     public function __construct(
         LoggerInterface $logger,
         Http $request,
@@ -27,9 +45,17 @@ class LogPageView implements ObserverInterface
         $this->backendPage = $backendPage;
     }
 
+    /**
+     * @param Observer $observer
+     * @return void
+     */
     public function execute(Observer $observer)
     {
+        /**
+         *  get Event from observer and controller action
+         */
         $action = $observer->getEvent()->getControllerAction();
+        // wrote custom function to get the page title
         $pageTitle = $this->getPageTitle();
         $pageUrl = $this->request->getUriString();
         $clientIp = $this->request->getClientIp();
@@ -38,6 +64,9 @@ class LogPageView implements ObserverInterface
         $this->logger->info($logMessage);
     }
 
+    /**
+     * @return mixed
+     */
     protected function getPageTitle()
     {
         if ($this->request->getRouteName() === 'adminhtml') {
