@@ -1,0 +1,28 @@
+{
+  "name": "magemontreal/module-page-view-logger",
+  "description": "Magento 2 module to log all website page accesses.",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magemontreal\\PageViewLogger\\": ""
+    }
+  },
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Sajid Unar",
+      "email": "sajidunnar@gmail.com",
+      "role": "Developer"
+    }
+  ]
+}
